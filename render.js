@@ -45,7 +45,12 @@
           link.href = annotation.url;
           link.target = '_blank';
         } else if (annotation.dest) {
-          link.href = `#page-${annotation.dest[0].num}`;
+          const destPageNum = annotation.dest[0].num;
+          link.href = `#page-${destPageNum}`;
+          link.onclick = (e) => {
+            e.preventDefault();
+            document.getElementById(`page-${destPageNum}`).scrollIntoView({ behavior: "smooth" });
+          };
         }
         link.style.position = 'absolute';
         link.style.left = `${annotation.rect[0] * scale}px`;
