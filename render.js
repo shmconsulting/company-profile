@@ -63,9 +63,6 @@
 
   const renderAllPages = async (containerWidth) => {
     for (let pageNumber = 1; pageNumber <= totalPages; pageNumber++) {
-      if (pageNumber === 4) {
-        continue;
-      }
       await renderPDFPage(pageNumber, containerWidth);
     }
   }
