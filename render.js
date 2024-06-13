@@ -43,7 +43,6 @@
         const link = document.createElement('a');
         if (annotation.url) {
           link.href = annotation.url;
-          link.target = '_blank';
         } else if (annotation.dest) {
           const destPageNum = annotation.dest[0].num;
           link.href = `#page-${destPageNum}`;
