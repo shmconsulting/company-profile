@@ -71,8 +71,11 @@
   await renderAllPages(bodyWidth)
 
   window.addEventListener('resize', async () => {
-    document.querySelectorAll('.page-container').forEach(container => container.remove());
-    bodyWidth = document.body.clientWidth;
-    await renderAllPages(bodyWidth);
+    const newBodyWidth = document.body.clientWidth;
+    if (Math.abs(newBodyWidth - bodyWidth) > 100) {
+      bodyWidth = newBodyWidth
+      document.querySelectorAll('.page-container').forEach(container => container.remove());
+      await renderAllPages(bodyWidth);
+    }
   });
 })();
