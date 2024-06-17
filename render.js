@@ -63,8 +63,8 @@
 
   const renderAllPages = async (containerWidth) => {
     for (let pageNumber = 1; pageNumber <= totalPages; pageNumber++) {
-      // skip page 11 && 12 // client list
-      if (pageNumber == 11 || pageNumber == 12) continue;
+      // skip page 9, 11 && 12 // client list
+      if (pageNumber == 11 || pageNumber == 12 || pageNumber == 9) continue;
       await renderPDFPage(pageNumber, containerWidth);
     }
   }
